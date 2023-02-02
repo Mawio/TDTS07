@@ -1,11 +1,10 @@
 #pragma once
-
 #include <systemc.h>
 
-enum class LightColour {
-  GREEN,
-  RED
-};
+#define RED false
+#define GREEN true
+
+typedef bool LightColour;
 
 SC_MODULE(TrafficLight) {
   sc_out<LightColour> output;
@@ -15,8 +14,7 @@ SC_MODULE(TrafficLight) {
   sc_in<bool> car_status;
 
   SC_HAS_PROCESS(TrafficLight);
-  TrafficLight(sc_module_name name, LightColour colour);
+  TrafficLight(sc_module_name name);
 
-  void orthogonal_changed_method();
-  void car_status_changed_method();
+  void light_logic_method();
 };
