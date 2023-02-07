@@ -1,7 +1,7 @@
-#include <systemc.h>
-#include "lights.h"
 #include "input_gen_rand.h"
+#include "intersection.h"
 #include "monitor.h"
+#include <systemc.h>
 #include <vector>
 
 #define ARG_COUNT 1
@@ -14,33 +14,24 @@ enum Orientation {
   EAST = 3,
 };
 
-int sc_main(int argc, char **argv)
-{
+int sc_main(int argc, char **argv) {
   // 1. the simulation time (in seconds),
 
   // assert(argc == ARG_COUNT+1);
 
   // Create channels.
-  sc_signal<bool> light_signals[4];
+  sc_signal<bool, SC_MANY_WRITERS> light_signals[4];
   sc_signal<bool> cars[4];
 
   // Instantiate modules.
-  TrafficLight light_south{"LightSouth"};
-  TrafficLight light_west{"LightWest"};
-  TrafficLight light_north{"LightNorth"};
-  TrafficLight light_east{"LightEast"};
-  TrafficLight* traffic_lights[] { &light_south, &light_west, &light_north, &light_east };
-
   RandomGenerator gen{"RandomGenerator"};
   Monitor monitor{"Monitor"};
+  Intersection intersection{"Intersection"};
 
   for (size_t i{}; i < 4; ++i) {
-    traffic_lights[i]->output(light_signals[i]);
-    traffic_lights[i]->opposite(light_signals[(i+2)%4]);
-    traffic_lights[i]->orthogonal_right(light_signals[(i+3)%4]);
-    traffic_lights[i]->orthogonal_left(light_signals[(i+1)%4]);
-
-    traffic_lights[i]->car_status(cars[i]);
+    intersection.lights[i](light_signals[i]);
+    intersection.lights_local[i]=light_signals[i].read();
+    intersection.car_status[i](cars[i]);
 
     gen.traffic_lights[i](light_signals[i]);
     gen.car_signals[i](cars[i]);
@@ -54,4 +45,3 @@ int sc_main(int argc, char **argv)
   sc_start(t);
   return 0;
 }
-

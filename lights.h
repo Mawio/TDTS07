@@ -17,4 +17,5 @@ SC_MODULE(TrafficLight) {
   TrafficLight(sc_module_name name);
 
   void light_logic_method();
+  void light_logic_thread();
 };

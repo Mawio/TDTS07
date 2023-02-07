@@ -25,10 +25,9 @@ void Monitor::check_traffic_lights_status() {
      assert(traffic_lights[(i+1)%4]->read() == RED);
      assert(traffic_lights[(i+3)%4]->read() == RED);
    }
-   os << i << ": " << traffic_light->read() << std::endl;
+   os << i << ": " << (traffic_light->read() ? "GREEN" : "RED") << ";" << (car_status[i]->read() ? "Cars here" : "No cars") << std::endl;
  }
 }
 
 void Monitor::check_generated_inputs() {
-
 }

@@ -1,8 +1,8 @@
 # The final executable
-PROGRAM = lights.x
+PROGRAM = intersection.x
 
 # The source files (*.cc)
-SRCS = lights.cc input_gen_rand.cc monitor.cc lights_testbench.cc
+SRCS = intersection.cc input_gen_rand.cc monitor.cc lights_testbench.cc
 
 ##################################
 ## DO NOT CHANGE ANYTHING BELOW ##
@@ -39,11 +39,11 @@ $(EXE): $(OBJS)
 # recompile the object file. The list should be the .cc-file beeing compiled,
 # and all the .h-files that are included in that .cc-file.
 
-lights_testbench.o: lights_testbench.cc lights.h input_gen_rand.h monitor.h
+lights_testbench.o: lights_testbench.cc intersection.h input_gen_rand.h monitor.h
 	$(CC) -c $(CFLAGS) $(INCDIR) lights_testbench.cc -o lights_testbench.o
 
-lights.o: lights.cc lights.h
-	$(CC) -c $(CFLAGS) $(INCDIR) lights.cc -o lights.o
+intersection.o: intersection.cc intersection.h
+	$(CC) -c $(CFLAGS) $(INCDIR) intersection.cc -o intersection.o
 
 input_gen_rand.o: input_gen_rand.cc input_gen_rand.h
 	$(CC) -c $(CFLAGS) $(INCDIR) input_gen_rand.cc -o input_gen_rand.o
