@@ -4,8 +4,7 @@
 #include <systemc.h>
 #include <vector>
 
-#define ARG_COUNT 1
-#define SIM_TIME 40
+#define ARG_COUNT 4
 
 enum Orientation {
   SOUTH = 0,
@@ -17,16 +16,20 @@ enum Orientation {
 int sc_main(int argc, char **argv) {
   // 1. the simulation time (in seconds),
 
-  // assert(argc == ARG_COUNT+1);
+  assert(argc == ARG_COUNT+1);
+  double sim_time = std::stod(argv[1]);
+  int timeout = std::stoi(argv[2]);
+  int max_cars = std::stoi(argv[3]);
+  int rate = std::stoi(argv[4]);
 
   // Create channels.
   sc_signal<bool, SC_MANY_WRITERS> light_signals[4];
   sc_signal<bool> cars[4];
 
   // Instantiate modules.
-  RandomGenerator gen{"RandomGenerator"};
-  Monitor monitor{"Monitor"};
-  Intersection intersection{"Intersection"};
+  RandomGenerator gen{"RandomGenerator", max_cars, rate};
+  Monitor monitor{"Monitor", timeout};
+  Intersection intersection{"Intersection", timeout};
 
   for (size_t i{}; i < 4; ++i) {
     intersection.lights[i](light_signals[i]);
@@ -41,7 +44,7 @@ int sc_main(int argc, char **argv) {
   }
 
   // Start the simulation.
-  sc_time t{SIM_TIME, SC_SEC};
+  sc_time t{sim_time, SC_SEC};
   sc_start(t);
   return 0;
 }

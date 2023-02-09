@@ -1,7 +1,8 @@
 #include "input_gen_rand.h"
 #include <stdlib.h>
 
-RandomGenerator::RandomGenerator(sc_module_name name) : sc_module{name} {
+RandomGenerator::RandomGenerator(sc_module_name name, int max_cars, int rate)
+    : sc_module{name}, max_cars{max_cars}, rate{rate} {
 
   for (size_t i{0}; i < 4; ++i) {
     car_signals[i].initialize(false);
@@ -22,9 +23,9 @@ void RandomGenerator::generator_thread() {
           car_signals[i]->write(false);
         }
       } else {
-        bool value{rand() % 100};
-        if (value < RATE) {
-          counters[i] = rand() % MAX_CARS + 1;
+        int value{rand() % 100};
+        if (value < this->rate) {
+          counters[i] = rand() % this->max_cars + 1;
           car_signals[i]->write(true);
         }
       }
