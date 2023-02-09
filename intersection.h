@@ -4,8 +4,6 @@
 #define RED false
 #define GREEN true
 
-typedef bool LightColour;
-
 SC_MODULE(Intersection) {
   sc_out<bool> lights[4];
   bool lights_local[4];

@@ -19,6 +19,7 @@ void Intersection::logic_method() {
       lights[i]->write(lights_local[i]);
       continue;
     }
+
     if (car_status[i]->read()) {
       if (lights_local[i] == RED) {
         if (lights_local[(i + 1) % 4] == RED &&

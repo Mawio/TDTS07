@@ -16,7 +16,6 @@ void RandomGenerator::generator_thread() {
   int counters[4]{};
   for (;;) {
     wait(1, SC_SEC);
-    // std::cout << sc_time_stamp() << std::endl;
     for (size_t i{0}; i < 4; ++i) {
       if (traffic_lights[i]->read() == GREEN) {
         if (--counters[i] <= 0) {

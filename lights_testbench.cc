@@ -6,15 +6,7 @@
 
 #define ARG_COUNT 4
 
-enum Orientation {
-  SOUTH = 0,
-  WEST = 1,
-  NORTH = 2,
-  EAST = 3,
-};
-
 int sc_main(int argc, char **argv) {
-  // 1. the simulation time (in seconds),
 
   assert(argc == ARG_COUNT+1);
   double sim_time = std::stod(argv[1]);
