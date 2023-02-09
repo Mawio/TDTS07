@@ -9,9 +9,11 @@ SC_MODULE(Monitor) {
 
   std::ostream& os{std::cout};
 
+  int timers[4];
+  sc_time timestamp;
+
   SC_HAS_PROCESS(Monitor);
   Monitor(sc_module_name name);
 
   void check_traffic_lights_status();
-  void check_generated_inputs();
 };

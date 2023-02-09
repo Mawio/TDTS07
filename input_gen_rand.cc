@@ -22,9 +22,9 @@ void RandomGenerator::generator_thread() {
           car_signals[i]->write(false);
         }
       } else {
-        bool value{rand() % 2};
-        if (value) {
-          counters[i] = rand() % 7 + 1;
+        bool value{rand() % 100};
+        if (value < RATE) {
+          counters[i] = rand() % MAX_CARS + 1;
           car_signals[i]->write(true);
         }
       }

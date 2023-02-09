@@ -4,6 +4,8 @@
 #define RED false
 #define GREEN true
 
+#define TIMEOUT 3
+
 typedef bool LightColour;
 
 SC_MODULE(Intersection) {
@@ -11,6 +13,7 @@ SC_MODULE(Intersection) {
   bool lights_local[4];
   sc_in<bool> car_status[4];
   int timers[4];
+  sc_event timeout;
 
   SC_HAS_PROCESS(Intersection);
   Intersection(sc_module_name name);

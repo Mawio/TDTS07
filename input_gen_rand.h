@@ -1,5 +1,7 @@
 #pragma once
 #include "lights.h"
+#define MAX_CARS 7
+#define RATE 30
 
 SC_MODULE(RandomGenerator) {
 
