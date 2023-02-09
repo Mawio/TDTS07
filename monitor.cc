@@ -1,8 +1,11 @@
 #include "monitor.h"
 #include "intersection.h"
 
-Monitor::Monitor(sc_module_name name) : sc_module(name) {
+Monitor::Monitor(sc_module_name name) : sc_module(name), timers{} {
 
+  //for (size_t i{0}; i < 4; ++i) {
+    //timers[i] = 0;
+  //}
   SC_METHOD(check_traffic_lights_status);
   dont_initialize();
   for (size_t i{0}; i < 4; ++i) {
@@ -31,8 +34,8 @@ void Monitor::check_traffic_lights_status() {
     }
     timestamp = sc_time_stamp();
 
-    if(traffic_light->read() == GREEN) {
-     assert(car_status[i]->read());
+    if (traffic_light->read() == GREEN) {
+      assert(car_status[i]->read());
     }
     os << i << ": " << (traffic_light->read() ? "GREEN" : "RED") << ";"
        << (car_status[i]->read() ? "Cars here" : "No cars") << std::endl;
