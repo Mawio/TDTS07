@@ -1,5 +1,5 @@
 #pragma once
-#include "lights.h"
+#include "intersection.h"
 
 SC_MODULE(RandomGenerator) {
 

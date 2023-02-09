@@ -1,5 +1,5 @@
 #include <systemc.h>
-#include "lights.h"
+#include "intersection.h"
 #include <iostream>
 
 SC_MODULE(Monitor) {
