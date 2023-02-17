@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+int status = 0;</declaration><template><name x="5" y="5">Template</name><parameter>int flag, int i, int identity</parameter><declaration>// Place local declarations here.
+clock x;</declaration><location id="id0" x="104" y="96"><name x="94" y="66">Green</name><label kind="invariant" x="94" y="111">x &lt;= 5</label></location><location id="id1" x="216" y="-32"><name x="206" y="-62">RequestGreen</name><label kind="invariant" x="206" y="-17">x&lt;=4</label></location><location id="id2" x="16" y="-40"><name x="6" y="-70">Red</name><label kind="invariant" x="6" y="-25">x&lt;=4</label></location><init ref="id2"/><transition><source ref="id0"/><target ref="id2"/><label kind="assignment" x="-152" y="40">x=0,
+status = status-identity</label></transition><transition><source ref="id1"/><target ref="id0"/><label kind="guard" x="176" y="48">(flag&amp;status)==0</label><label kind="assignment" x="176" y="16">x = 0,
+status = status | identity</label></transition><transition><source ref="id2"/><target ref="id1"/><label kind="guard" x="56" y="-66">x &gt;= 4</label><label kind="assignment" x="56" y="-36">x=0</label></transition></template><system>// Place template instantiations here.
+P1 = Template(10, 1, 1);
+P2 = Template(5, 2, 2);
+P3 = Template(10, 3, 4);
+P4 = Template(5, 4, 8);
+
+// List one or more processes to be composed into a system.
+system P1, P2, P3, P4;</system></nta>
