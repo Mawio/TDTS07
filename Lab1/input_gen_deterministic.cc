@@ -17,17 +17,16 @@ void DeterministicGenerator::generator_thread() {
     for (size_t i{}; i < 4; ++i) {
       // A light is green so a car will leave
       if (traffic_lights[i]->read() == GREEN) {
-        // The last car left in the last time step
+        // The last car left in the last time step, so we have to notify the light
         if (car_counts[i] == 0) {
           car_signals[i].write(false);
         } else {
           car_counts[i]--;
         }
       }
-
-      // If there are cars, we need to signal that to the traffic lights
-      if (car_counts[i] > 0 && !car_signals[i].read()) {
-        car_signals[i].write(true);
+      // If a light is red, there are cars there but we didn't notify the light yet
+      else if (car_counts[i] > 0 && !car_signals[i].read()) {
+          car_signals[i].write(true);
       }
     }
   }
