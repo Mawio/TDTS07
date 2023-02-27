@@ -2,7 +2,7 @@
 PROGRAM = intersection.x
 
 # The source files (*.cc)
-SRCS = intersection.cc input_gen_rand.cc monitor.cc lights_testbench.cc
+SRCS = intersection.cc input_gen_rand.cc input_gen_deterministic.cc monitor.cc lights_testbench.cc
 
 ##################################
 ## DO NOT CHANGE ANYTHING BELOW ##
@@ -47,6 +47,9 @@ intersection.o: intersection.cc intersection.h
 
 input_gen_rand.o: input_gen_rand.cc input_gen_rand.h
 	$(CC) -c $(CFLAGS) $(INCDIR) input_gen_rand.cc -o input_gen_rand.o
+
+input_gen_deterministic.o: input_gen_deterministic.cc input_gen_deterministic.h
+	$(CC) -c $(CFLAGS) $(INCDIR) input_gen_deterministic.cc -o input_gen_deterministic.o
 
 monitor.o: monitor.cc monitor.h
 	$(CC) -c $(CFLAGS) $(INCDIR) monitor.cc -o monitor.o
