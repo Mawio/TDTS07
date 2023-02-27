@@ -16,19 +16,23 @@ void Monitor::check_traffic_lights_status() {
   for (size_t i{0}; i < 4; ++i) {
     auto &&traffic_light{traffic_lights[i]};
 
+    // Assert property 1 and 2
     if (traffic_light->read() == GREEN) {
       assert(traffic_lights[(i + 1) % 4]->read() == RED);
       assert(traffic_lights[(i + 3) % 4]->read() == RED);
     }
 
+    // Reset the timer used to check for timeout
     if (traffic_light->read() == RED) {
       timers[i] = 0;
     }
 
+    // Assert property 3 by ensuring timeouting
     if (traffic_light->read() == GREEN) {
       assert(++timers[i] <= this->timeout);
     }
 
+    // Assert that lights will only be green if there is demand
     if (traffic_light->read() == GREEN) {
       assert(car_status[i]->read());
     }
