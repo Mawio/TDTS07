@@ -8,4 +8,9 @@ A[] !((P1.Green or P3.Green) and (P2.Green or P4.Green))
 /*
 
 */
-P1.RequestGreen --> P1.Green
+A[] not deadlock
+
+/*
+
+*/
+P1.car --> P1.Green
