@@ -3,7 +3,7 @@
 /*
 
 */
-S.s1 --> S.s0
+S.s1 --> (R.wait1 or R.wait0)
 
 /*
 
