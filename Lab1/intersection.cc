@@ -1,6 +1,7 @@
 #include "intersection.h"
 
-Intersection::Intersection(sc_module_name name, int timeout) : sc_module{name}, timeout{timeout} {
+Intersection::Intersection(sc_module_name name, int timeout)
+    : sc_module{name}, timeout{timeout} {
 
   SC_METHOD(logic_method);
   dont_initialize();
@@ -42,14 +43,19 @@ void Intersection::timeout_thread() {
   for (;;) {
     wait(1, SC_SEC);
     for (size_t i = 0; i < 4; i++) {
-      if (++timers[i] == this->timeout) {
-        if (lights_local[i] == GREEN) {
+      if (lights_local[i] == GREEN) {
+        if (++timers[i] == this->timeout) {
           lights_local[i] = RED;
+          timers[i] = 0;
+
+          if (lights_local[(i + 2) % 4] == GREEN) {
+            lights_local[(i + 2) % 4] = RED;
+            timers[(i + 2) % 4] = 0;
+          }
+          timeouted.notify();
+          wait(1, SC_SEC);
+          timeouted.notify();
         }
-        if (lights_local[(i + 2) % 4] == GREEN) {
-          lights_local[(i + 2) % 4] = RED;
-        }
-        timeouted.notify();
       }
     }
   }

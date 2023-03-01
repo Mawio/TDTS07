@@ -23,7 +23,7 @@ int sc_main(int argc, char **argv) {
   // based on the amount of arguments passed to the program
   if (argc == ARGC_RANDOM) {
     max_cars = std::stoi(argv[3]);
-    rate = std::stoi(argv[4]);
+        rate = std::stoi(argv[4]);
   } else {
     filename = std::string{argv[3]};
   }
