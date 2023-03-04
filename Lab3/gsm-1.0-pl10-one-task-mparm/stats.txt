@@ -1,0 +1,210 @@
+Statistics file: stats.txt
+
+
+Simulation executed with SWARM cores on AMBA AHB (signal model) interconnection
+Simulation executed with 1 buses connected by 0 bridges
+Simulation executed with 1 cores (1 masters including DMAs and smart memories)
+4 slaves: 1 private, 1 shared, 1 semaphores, 1 interrupt,
+          0 core-associated, 0 storage, 0 frequency scaling,
+          0 smart memories, 0 FFT devices
+          (private on, core-associated off, frequency scaling off,
+          smartmem off)
+DMA controllers disabled
+Scratchpad memories disabled
+Instruction scratchpad memories disabled
+Queue memories disabled
+Advanced statistics on, Access traces off, TG traces off
+Simulation executed without OCP interfacing (where applicable)
+Master system clock period set to 5 ns
+VCD waveforms off
+Partitioned scratchpad analysis off, /dev/pts prompt skipped
+Data cache of 2048 bytes, 2-way set associative, having 0 wait states
+Cache write policy: write through
+Instruction cache of 512 bytes, 2-way set associative, having 0 wait states
+Simulation executed with isofrequential system
+Latencies: interrupts 1, memories 1 (initial) 1 (back-to-back)
+Statistics collected since benchmark request
+
+
+---------------------------------------------------------------------------------
+
+
+Simulation executed: Thu Mar  2 16:55:17 2023
+Elapsed time - overall simulation: 0:01 minutes
+Total simulated master system cycles: 346805 (1734025 ns)
+CPU cycles simulated per second: 346805.0
+Elapsed time - processor 0 critical section: 0:01 minutes
+
+
+---------------------------------------------------------------------------------
+
+
+-----------------------
+Interconnect statistics
+-----------------------
+Overall exec time             = 344706 master system cycles (1723530 ns)
+1-CPU average exec time       = 344706 master system cycles (1723530 ns)
+Concurrent exec time          = 344706 master system cycles (1723530 ns)
+Bus busy                      = 65094 master system cycles (18.88% of 344706)
+Bus transferring data         = 23368 master system cycles (6.78% of 344706, 35.90% of 65094)
+Bus Accesses                  = 18360 (6839 SR, 9852 SW, 1669 BR, 0 BW: 8508 R, 9852 W)
+Time (ns) to bus access (R)   = 85080 over 8508 accesses (max 10, avg 10.00, min 10)
+Time (ns) to bus compl. (R)   = 220230 over 8508 accesses (max 50, avg 25.89, min 20)
+Time (ns) to bus access (W)   = 98520 over 9852 accesses (max 10, avg 10.00, min 10)
+Time (ns) to bus compl. (W)   = 197040 over 9852 accesses (max 20, avg 20.00, min 20)
+Time (ns) to bus access (SR)  = 68390 over 6839 accesses (max 10, avg 10.00, min 10)
+Time (ns) to bus compl. (SR)  = 136780 over 6839 accesses (max 20, avg 20.00, min 20)
+Time (ns) to bus access (SW)  = 98520 over 9852 accesses (max 10, avg 10.00, min 10)
+Time (ns) to bus compl. (SW)  = 197040 over 9852 accesses (max 20, avg 20.00, min 20)
+Time (ns) to bus access (BR)  = 16690 over 1669 accesses (max 10, avg 10.00, min 10)
+Time (ns) to bus compl. (BR)  = 83450 over 1669 accesses (max 50, avg 50.00, min 50)
+
+
+---------------------------------------------------------------------------------
+
+
+-----------------
+SWARM Processor 0
+-----------------
+Direct Accesses               = 0 to DMA
+Bus Accesses                  = 18360 (6839 SR, 9852 SW, 1669 BR, 0 BW: 8508 R, 9852 W)
+Time (ns) to bus access (R)   = 85080 over 8508 accesses (max 10, avg 10.00, min 10)
+Time (ns) to bus compl. (R)   = 220230 over 8508 accesses (max 50, avg 25.89, min 20)
+Time (ns) to bus access (W)   = 98520 over 9852 accesses (max 10, avg 10.00, min 10)
+Time (ns) to bus compl. (W)   = 197040 over 9852 accesses (max 20, avg 20.00, min 20)
+Time (ns) to bus access (SR)  = 68390 over 6839 accesses (max 10, avg 10.00, min 10)
+Time (ns) to bus compl. (SR)  = 136780 over 6839 accesses (max 20, avg 20.00, min 20)
+Time (ns) to bus access (BR)  = 16690 over 1669 accesses (max 10, avg 10.00, min 10)
+Time (ns) to bus compl. (BR)  = 83450 over 1669 accesses (max 50, avg 50.00, min 50)
+Time (ns) to bus access (SW)  = 98520 over 9852 accesses (max 10, avg 10.00, min 10)
+Time (ns) to bus compl. (SW)  = 197040 over 9852 accesses (max 20, avg 20.00, min 20)
+Time (ns) to bus access (tot) = 183600 over 18360 accesses (max 10, avg 10.00, min 10)
+Time (ns) to bus compl. (tot) = 417270 over 18360 accesses (max 50, avg 22.73, min 20)
+Wrapper overhead cycles       = 36720
+Total bus activity cycles     = 453990 (bus completion + wrapper OH)
+"Free" bus accesses           = 0 (0.00% of 18360)
+Idle cycles                   = 0
+
++==================+=======================+
+|                  |      Current setup    |
+|                  |    Ext Acc     Cycles |
++==================+=======================+
+| Private reads    |      1669*     192807 |
+| Bus+Wrapper waits|                 13352 |
+| Private writes   |       5499       5499 |
+| Bus+Wrapper waits|                 27495 |
++==================+=======================+
+| Shared reads     |       6839      13678 |
+| Bus+Wrapper waits|                 34195 |
+| Shared writes    |       4353       4353 |
+| Bus+Wrapper waits|                 21765 |
++------------------+-----------------------+
+| Semaphore reads  |          0          0 |
+| Bus+Wrapper waits|                     0 |
+| Semaphore writes |          0          0 |
+| Bus+Wrapper waits|                     0 |
++------------------+-----------------------+
+| Interrupt writes |          0          0 |
+| Bus+Wrapper waits|                     0 |
++==================+=======================+
+| Internal reads   |                     5 |
+| Internal writes  |                   973 |
++==================+=======================+
+| SWARM total      |      18360     217315 |
+| Wait cycles total|                 96807 |
+| Pipeline stalls  |                 30584 |
++------------------+-----------------------+
+| Overall total    |      18360     344706 |
++==================+=======================+
+
+---Cache performance---
+* Read bursts due to 1669 cache misses out of 182793 cacheable reads. Misses
+also cost 10014 int cycles to refill. All writes were write-through.
+Reads are done by reading tag and data in parallel (so data reads happen
+even on cache misses); write-throughs always involve a tag read followed,
+only in case of hit, by a data word write.
+D-Cache: 10299 read hits; 121 read misses (484 single-word refills)
+D-Cache: 4946 write-through hits; 553 write-through misses
+D-Cache total: 15919 tag reads, 121 tag writes
+               10420 data reads, 121 data line writes, 4946 data word writes
+D-Cache Miss Rate: 1.19%
+I-Cache: 172494 read hits; 1548 read misses (6192 single-word refills)
+I-Cache: 0 write-through hits; 0 write-through misses
+I-Cache total: 174042 tag reads, 1548 tag writes
+               174042 data reads, 1548 data line writes, 0 data word writes
+I-Cache Miss Rate: 0.91%
+
+
+---------------------------------------------------------------------------------
+
+
+==============================================================================
+----------------
+Power estimation
+----------------
+
+  Energy spent:
+ARM 0:
+   core:      16576750.70 [pJ]
+   icache:     8790816.21 [pJ]
+   dcache:      861045.95 [pJ]
+   scratch:          0.00 [pJ]
+   i-scratch:        0.00 [pJ]
+RAM 00:        2230947.23 [pJ]
+RAM 01:        1996577.59 [pJ]
+RAM 02:              0.00 [pJ]
+RAM 03:              0.00 [pJ]
+Bus 0:
+   typ:              0.00 [pJ]
+   max:              0.00 [pJ]
+   min:              0.00 [pJ]
+-------------------------------------
+Partial sums:
+   ARM cores: 16576750.70 [pJ]
+   icaches:    8790816.21 [pJ]
+   dcaches:     861045.95 [pJ]
+   scratches:        0.00 [pJ]
+   i-scratches:      0.00 [pJ]
+RAMs:          4227524.82 [pJ]
+DMAs:                0.00 [pJ]
+Bridges:             0.00 [pJ]
+Buses:
+   typ:              0.00 [pJ]
+   max:              0.00 [pJ]
+   min:              0.00 [pJ]
+-------------------------------------
+-------------------------------------
+Total:        30456137.67 [pJ] typ
+Total:        30456137.67 [pJ] max
+Total:        30456137.67 [pJ] min
+------------------------------------------------------------------------------
+
+  Power spent:
+ARM 0:
+   core:             9.62 [mW]
+   icache:           5.10 [mW]
+   dcache:           0.50 [mW]
+   scratch:          0.00 [mW]
+   i-scratch:        0.00 [mW]
+RAM 00:              1.29 [mW]
+RAM 01:              1.16 [mW]
+RAM 02:              0.00 [mW]
+RAM 03:              0.00 [mW]
+Bus 0:
+   typ:              0.00 [mW]
+   max:              0.00 [mW]
+   min:              0.00 [mW]
+==============================================================================
+RAM 0:  6676 [reads]  5499 [writes] 0 [stalls] 0 [noops]
+	idle energy         0.00 pJ
+RAM 1:  6839 [reads]  4353 [writes] 0 [stalls] 0 [noops]
+	idle energy         0.00 pJ
+RAM 2:  0 [reads]  0 [writes] 0 [stalls] 0 [noops]
+RAM 3:  0 [reads]  0 [writes] 0 [stalls] 0 [noops]
+==============================================================================
+Cache Accesses:  tag_R tagW dataR datalW datawW dirtyR dirtyW bitR bitW
+Instruction cache
+CACHE 0  -  174042 1548 174042 1548 0 174042 1548 0 0
+Data cache
+CACHE 0  -  15919 121 10420 121 4946 15919 121 0 0
+==============================================================================
