@@ -1,0 +1,35 @@
+- STBus Power Modeling Engine, Version 0.92
+- Using propietary information of STMicroelectronics
+- send bugs to <vittorio.zaccaria@st.com>
+- Initializing power estimation engine
+- Using STBus Power Library: /courses/TDTS07/sw/mparm/mpsim/stbus-power/ast_power_full_linux_bin-R.2003.12.1/models/higher_C.lib
+- Library version "0.9"
+- Library created on 5-December-2003
+- Technology library used : HCMOS9-0.13u
+- Library characterization clock cycle: 20.000000
+- Results will be scaled on the current clock cycle
+- Library minimum capacitance: 1.000000 [pF]
+- Library maximum capacitance: 3.000000 [pF]
+- Default library typical capacitance: 2.000000 [pF]
+- Library characterization voltage: 1.080000 [V]
+- Using library default parameters 
+- Setting dynamic average interval to 100 
+- Setting current clock cycle period to 5.000000 [ns]
+- Using (0.392922 1.930824 1.552717, 0.436506 5.146073 3.818614) node coefficients
+------------------------
+- SystemC Power Report  
+------------------------
+- Start cycle: 0
+- Stop cycle: 0
+- Number of cycles: 1
+- Power consumption break out:
+                   name     description    avg. power         energy   SC   RC cap
+--------------------------------------------------------------------------------
+   shared_8x8ICN.Node_1     Node type 3        6.28 [mW]  89659318.12 [pJ] 346708 380230 max
+   shared_8x8ICN.Node_1     Node type 3        3.34 [mW]  47643172.24 [pJ] 346708 380230 min
+   shared_8x8ICN.Node_1     Node type 3        4.81 [mW]  68651245.18 [pJ] 346708 380230 typ
+--------------------------------------------------------------------------------
+            Total (max)                        6.28 [mW]  89659318.12 [pJ]    0    0 max
+            Total (min)                        3.34 [mW]  47643172.24 [pJ]    0    0 min
+            Total (typ)                        4.81 [mW]  68651245.18 [pJ]    0    0 typ
+--------------------------------------------------------------------------------
